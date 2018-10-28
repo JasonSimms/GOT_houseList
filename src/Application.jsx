@@ -1,23 +1,25 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
+// import Landing from './components/Landing'
+import Landing from './Landing'
+import NotFound from './components/NotFound'
 import HouseList from "./components/house_list"
 
 
 
 class Application extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      selectedHouse: null
-    };
-  }
   render() {
     return (
-      <div>
-        <div className="Header">GOT HOUSE LIST W/ Details</div>
-        <HouseList/>
-      </div>
+        <BrowserRouter>
+        <div>
+            <Switch>
+                <Route exact path="/" component={Landing} />
+                <Route path="/main" component={HouseList} />
+                <Route component={NotFound} />
+            </Switch>
+        </div>
+    </BrowserRouter>
     );
   }
 
