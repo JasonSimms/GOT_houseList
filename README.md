@@ -1,3 +1,9 @@
+A game of thrones house list with a detailed view created in ReactJS.
+
+USE GOT API : https://anapioficeandfire.com/
+
+Houses and display details.
+
 ****
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
