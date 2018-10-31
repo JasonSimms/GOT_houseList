@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, NavLink, BrowserRouter } from "react-router-dom";
-import Details from "./HouseDetails";
 
 const NavList = props => {
   const mappedList = props.houses.map((el, i) => (
@@ -10,7 +9,10 @@ const NavList = props => {
       className="list-group-item list-group-item-action"
       onClick={() => props.clicked(el.url)}
     >
+    <button>
+
       {el.name}
+    </button>
     </li>
   ));
   return (
