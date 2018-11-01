@@ -44,7 +44,7 @@ class App extends React.Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      console.log(this.state.houses.length);
+      // console.log(this.state.houses.length);
       return (
         <div>
           <div className="Header">MYAPP.jsx GOT LIST</div>
@@ -62,12 +62,12 @@ class App extends React.Component {
   _clicked(index) {
     // console.log("clicked: ", index);
     let clickedHouse = this.state.houses.find(obj => obj.url === index);
-    delete clickedHouse[`url`];
-    this._getNames(clickedHouse).then(res => 
-      // console.log(`rezzed`,res)
-      this.setState({displayedHouse: res, isNamed: true})
+    this.setState({displayedHouse: clickedHouse, isNamed: true})
+    // this._getNames(clickedHouse).then(res => 
+    //   // console.log(`rezzed`,res)
+    //   this.setState({displayedHouse: res, isNamed: true})
       
-      )
+    //   )
 
     // CONSIDER USING UNDERSCORE.js to facilitate backward compatabilty
     // var obj = _.find(objArray, function (obj) { return obj.id === 3; });   
