@@ -2,6 +2,7 @@ import React from "react";
 
 import NavList from "./components/NavList";
 import Details from "./components/HouseDetails";
+import NavPagination from "./components/NavPagination";
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends React.Component {
     this._loadJson = this._loadJson.bind(this)
   }
   componentDidMount() {
-      this._loadJson("https://www.anapioficeandfire.com/api/houses?page=3&pageSize=20")
+      this._loadJson("https://www.anapioficeandfire.com/api/houses?page=3&pageSize=8")
       .then(
         result => {
           this.setState({
@@ -48,7 +49,10 @@ class App extends React.Component {
       return (
         <div>
           <div className="Header">MYAPP.jsx GOT LIST</div>
-          <div className="row">
+          <div>
+            <NavPagination/>
+          </div>
+          <div>
             <NavList houses={this.state.houses} clicked={this._clicked} />
             {this.state.isNamed && (
               <Details house={this.state.displayedHouse} />

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Table } from 'reactstrap';
+
 
 class HouseDetails extends Component {
   constructor(props) {
@@ -52,10 +54,30 @@ class HouseDetails extends Component {
 return (
         <div>
           <h2>HOW ABOUT THEM DETAILS?</h2>
-          <h4>{this.props.house.name}</h4>
-          <p>Region: {this.props.house.region}</p>
-          <p>CurrentLord : {this.props.house.currentLord}</p>
-          <p>DISPLAY VAR = {JSON.stringify(this.props.house)}</p>
+      <Table>
+      <thead>
+          <tr>
+            <th>House: </th>
+            <th>{this.props.house.name}</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Region: {this.props.house.region}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>CurrentLord : {this.props.house.currentLord}</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>DISPLAY VAR = {JSON.stringify(this.props.house)}</td>
+
+          </tr>
+        </tbody>
+</Table>
         </div>
         )
     }
@@ -84,3 +106,45 @@ return (
 }
 
 export default HouseDetails;
+
+
+
+// import React from 'react';
+// import { Table } from 'reactstrap';
+
+// export default class Example extends React.Component {
+//   render() {
+//     return (
+//       <Table>
+//         <thead>
+//           <tr>
+//             <th>#</th>
+//             <th>First Name</th>
+//             <th>Last Name</th>
+//             <th>Username</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           <tr>
+//             <th scope="row">1</th>
+//             <td>Mark</td>
+//             <td>Otto</td>
+//             <td>@mdo</td>
+//           </tr>
+//           <tr>
+//             <th scope="row">2</th>
+//             <td>Jacob</td>
+//             <td>Thornton</td>
+//             <td>@fat</td>
+//           </tr>
+//           <tr>
+//             <th scope="row">3</th>
+//             <td>Larry</td>
+//             <td>the Bird</td>
+//             <td>@twitter</td>
+//           </tr>
+//         </tbody>
+//       </Table>
+//     );
+//   }
+// }
