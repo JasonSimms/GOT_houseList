@@ -22,14 +22,13 @@
 
 3.  Some House details are URL references to other API endpoints. This is not ideal to display to end users.
 
-- Solution: (TO BE COMPLETED) Asynchronous API calls need to replace every URL with a String response from the resulting object.name.  
+- Solution: React-Axios package used to populate fields containing URLS with names from resulting endpoints.
 
 
 ****
 
 ## Future Improvements
 
-- Challenge 3
 - Additional information popups on Links from API URLS instead of just displaying .name.
 - Layout CSS
 - Alphabetized Pagination or Search Bar (NOTE: API OF ICE AND FIRE SUPPORTS FILTER BY NAME)

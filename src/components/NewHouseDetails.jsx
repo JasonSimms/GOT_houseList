@@ -1,16 +1,6 @@
 import React from "react";
-import { Table, Container, Row, Col } from "reactstrap";
-import {
-  AxiosProvider,
-  Request,
-  Get,
-  Delete,
-  Head,
-  Post,
-  Put,
-  Patch,
-  withAxios
-} from "react-axios";
+import { Table, Container } from "reactstrap";
+import { Get } from "react-axios";
 
 const NewHouseDetails = props => {
   const thisHouse = props.house;
@@ -19,17 +9,54 @@ const NewHouseDetails = props => {
   const thisHouseKeys = Object.keys(thisHouse);
 
   const mappedInfo = thisHouseKeys.map(el => {
-    return (
-      <tr key={el}>
-        <th scope="row">{el}</th>
-        <td>{props.house[el]}</td>
-      </tr>
-    );
+    if (thisHouse[el].includes(`https`)) {
+      // console.log(`GOT A URL!`)
+      return (
+        <span>
+          <Get url={"" + thisHouse[el]}>
+            {(error, response, isLoading, onReload) => {
+              if (error) {
+                return (
+                  <div>
+                    Something bad happened: {error.message}{" "}
+                    <button
+                      onClick={() => onReload({ params: { reload: true } })}
+                    >
+                      Retry
+                    </button>
+                  </div>
+                );
+              } else if (isLoading) {
+                return <div>Loading...</div>;
+              } else if (response !== null) {
+                return (
+                  <div>
+                    <tr key={el}>
+                      <th scope="row">{el}</th>
+                      <td>{response.data.name} </td>
+                    </tr>
+                  </div>
+                );
+              }
+              return <div>Default message before request is made.</div>;
+            }}
+          </Get>
+        </span>
+      );
+    } else if (thisHouse[el] == "") {
+      return null;
+    } else {
+      return (
+        <tr key={el}>
+          <th scope="row">{el}</th>
+          <td>{props.house[el]}</td>
+        </tr>
+      );
+    }
   });
   return (
     <Container>
       <h2>House Details</h2>
-
       <Table striped>
         <thead />
         <tbody>{mappedInfo}</tbody>
