@@ -14,43 +14,16 @@ class HouseDetails extends Component {
 
     this._DETgetNames = this._DETgetNames.bind(this);
     this._DETloadJson = this._DETloadJson.bind(this);
-    // this._strikeFilter = this._strikeFilter.bind(this);
   }
 
-  componentDidMount() {
-    console.log(`det mounted`);
-    // this._DETgetNames(this.props.house).then(
-    //   result => {
-    //     this.setState({
-    //       isLoaded: true,
-    //       displayedHouse: result
-    //     });
-    //   },
-    //   error => {
-    //     this.setState({
-    //       isLoaded: true,
-    //       error
-    //     });
-    //   }
-    // );
-  }
-  componentDidUpdate() {
-    console.log(`det updated`);
-  }
 
   render() {
-    // console.log(`details -> `, this.props.house.currentLord);
     const { error, isLoaded } = this.state;
-    let display = null;
-
-    console.log(display, `disp here`);
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      console.log(`display = `, display);
-      // return this._DETgetNames(this.props.house).then(res => console.log(res)).then(
 return (
         <div>
           <h2>HOW ABOUT THEM DETAILS?</h2>

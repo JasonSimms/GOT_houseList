@@ -20,7 +20,7 @@ const NavList = props => {
   ));
   return (
 
-<ListGroup className=".col-5">
+<ListGroup hover className=".col-5">
 {mappedList}
 </ListGroup>
   );

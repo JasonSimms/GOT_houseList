@@ -4,38 +4,39 @@ import PropTypes from 'prop-types';
 
 export default class NavPagination extends React.Component {
   render() {
+    //   console.log(`navpage`,this.props)
     return (
       <Pagination aria-label="Page navigation example">
-        <PaginationItem disabled>
-          <PaginationLink previous href="#" />
+        <PaginationItem >
+          <PaginationLink previous href="#" onClick={() => this.props.pageRev()}/>
         </PaginationItem>
         <PaginationItem active>
-          <PaginationLink href="#">
+          <PaginationLink href="#" onClick={() => this.props.pageTo(1)}>
             1
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">
+          <PaginationLink href="#" onClick={() => this.props.pageTo(2)}>
             2
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">
+          <PaginationLink href="#" onClick={() => this.props.pageTo(3)}>
             3
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">
+          <PaginationLink href="#" onClick={() => this.props.pageTo(4)}>
             4
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">
+          <PaginationLink href="#"onClick={() => this.props.pageTo(5)}>
             5
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink next href="#" />
+          <PaginationLink next href="#"onClick={() => this.props.pageAdv()} />
         </PaginationItem>
       </Pagination>
     );
