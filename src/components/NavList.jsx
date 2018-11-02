@@ -1,26 +1,31 @@
 import React from "react";
-import { Route, NavLink, BrowserRouter } from "react-router-dom";
+import { ListGroup, ListGroupItem } from "reactstrap";
+import PropTypes from "prop-types";
 
 const NavList = props => {
   const mappedList = props.houses.map((el, i) => (
-    <li
+    <ListGroupItem
+      // <li
       key={i}
       to={"/" + el.name}
-      className="list-group-item list-group-item-action"
       onClick={() => props.clicked(el.url)}
     >
-    <button>
-
       {el.name}
-    </button>
-    </li>
+    </ListGroupItem>
   ));
   return (
-    <div>
-      <h1>Hello from Nav List</h1>
-      <ul>{mappedList}</ul>
-    </div>
+    <ListGroup>
+      {mappedList}
+    </ListGroup>
   );
+};
+
+ListGroup.propTypes = {
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  // boolean to render list group items edge-to-edge in a parent container
+  flush: PropTypes.bool,
+  className: PropTypes.string,
+  cssModule: PropTypes.object
 };
 
 export default NavList;

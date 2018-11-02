@@ -7,9 +7,37 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color:peachpuff;
+  width: 100vw;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* .container {
+  background-color:green;
+  width:98vw;
+} */
+
+#root {
+  /* background-color:grey; */
+  width:98vw;
+}
+
+.nav-list {
+  /* background-color:red; */
+  padding: 0 0;
+  overflow-y: scroll;
+  height:80vh;
+}
+
+.container{
+  width: 100%;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.row{
+  margin: 0 0;
 }
