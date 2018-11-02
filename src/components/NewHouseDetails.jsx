@@ -12,7 +12,6 @@ const NewHouseDetails = props => {
     if (thisHouse[el].includes(`https`)) {
       // console.log(`GOT A URL!`)
       return (
-        <span>
           <Get url={"" + thisHouse[el]}>
             {(error, response, isLoading, onReload) => {
               if (error) {
@@ -30,18 +29,15 @@ const NewHouseDetails = props => {
                 return <div>Loading...</div>;
               } else if (response !== null) {
                 return (
-                  <div>
                     <tr key={el}>
                       <th scope="row">{el}</th>
                       <td>{response.data.name} </td>
                     </tr>
-                  </div>
                 );
               }
               return <div>Default message before request is made.</div>;
             }}
           </Get>
-        </span>
       );
     } else if (thisHouse[el] == "") {
       return null;
@@ -57,7 +53,7 @@ const NewHouseDetails = props => {
   return (
     <Container>
       <h2>House Details</h2>
-      <Table striped>
+      <Table striped bordered>
         <thead />
         <tbody>{mappedInfo}</tbody>
       </Table>
