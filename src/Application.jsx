@@ -1,9 +1,13 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
+// import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
+
+
 import NavList from "./components/NavList";
 import Details from "./components/HouseDetails";
 import NavPagination from "./components/NavPagination";
+import Axios from "axios";
 
 class App extends React.Component {
   constructor(props) {
@@ -21,21 +25,17 @@ class App extends React.Component {
     this._clicked = this._clicked.bind(this);
     this._prepareDisplay = this._prepareDisplay.bind(this);
     this._getNames = this._getNames.bind(this);
-    this._loadJson = this._loadJson.bind(this);
     this._paginateNav = this._paginateNav.bind(this);
     this._paginateNavAdv = this._paginateNavAdv.bind(this);
     this._paginateNavRev = this._paginateNavRev.bind(this);
   }
   componentDidMount() {
-    this._loadJson(
-      `https://www.anapioficeandfire.com/api/houses?page=${
-        this.state.apiPage
-      }&pageSize=8`
-    ).then(
+Axios.get(`https://www.anapioficeandfire.com/api/houses?page=${this.state.apiPage}&pageSize=50`)
+.then(
       result => {
         this.setState({
           isLoaded: true,
-          houses: result
+          houses: result.data
         });
       },
       error => {
@@ -47,25 +47,22 @@ class App extends React.Component {
     );
   }
   componentWillUpdate() {
-    this._loadJson(
-      `https://www.anapioficeandfire.com/api/houses?page=${
-        this.state.apiPage
-      }&pageSize=50`
-    ).then(
-      result => {
-        this.setState({
-          isLoaded: true,
-          houses: result
-        });
-      },
-      error => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
+    Axios.get(`https://www.anapioficeandfire.com/api/houses?page=${this.state.apiPage}&pageSize=50`)
+    .then(
+          result => {
+            this.setState({
+              isLoaded: true,
+              houses: result.data
+            });
+          },
+          error => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        );
       }
-    );
-  }
   render() {
     const { error, isLoaded, houses } = this.state;
     if (error) {
@@ -133,9 +130,6 @@ class App extends React.Component {
     });
   }
 
-  _loadJson(url) {
-    return fetch(url).then(response => response.json());
-  }
 
   _paginateNav(page) {
     this.setState({ apiPage: page });
