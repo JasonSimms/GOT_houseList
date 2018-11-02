@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Row, Col } from "reactstrap";
 
 import NavList from "./components/NavList";
 import Details from "./components/HouseDetails";
@@ -24,11 +25,12 @@ class App extends React.Component {
     this._paginateNav = this._paginateNav.bind(this);
     this._paginateNavAdv = this._paginateNavAdv.bind(this);
     this._paginateNavRev = this._paginateNavRev.bind(this);
-
   }
   componentDidMount() {
     this._loadJson(
-      `https://www.anapioficeandfire.com/api/houses?page=${this.state.apiPage}&pageSize=8`
+      `https://www.anapioficeandfire.com/api/houses?page=${
+        this.state.apiPage
+      }&pageSize=8`
     ).then(
       result => {
         this.setState({
@@ -46,7 +48,9 @@ class App extends React.Component {
   }
   componentWillUpdate() {
     this._loadJson(
-      `https://www.anapioficeandfire.com/api/houses?page=${this.state.apiPage}&pageSize=8`
+      `https://www.anapioficeandfire.com/api/houses?page=${
+        this.state.apiPage
+      }&pageSize=50`
     ).then(
       result => {
         this.setState({
@@ -71,22 +75,25 @@ class App extends React.Component {
     } else {
       // console.log(this.state.houses.length);
       return (
-        <div>
-          <div className="Header">MYAPP.jsx GOT LIST</div>
-          <div>
-            <NavPagination 
-            pageTo={this._paginateNav}
-            pageAdv={this._paginateNavAdv}
-            pageRev={this._paginateNavRev}
+        <Container>
+          <Row>
+            <NavPagination
+              pageTo={this._paginateNav}
+              pageAdv={this._paginateNavAdv}
+              pageRev={this._paginateNavRev}
             />
-          </div>
-          <div>
-            <NavList houses={this.state.houses} clicked={this._clicked} />
-            {this.state.isNamed && (
-              <Details house={this.state.displayedHouse} />
-            )}
-          </div>
-        </div>
+          </Row>
+          <Row>
+            <Col xs="4" className="nav-list">
+              <NavList houses={this.state.houses} clicked={this._clicked} />
+            </Col>
+            <Col xs="7">
+              {this.state.isNamed && (
+                <Details house={this.state.displayedHouse} />
+              )}
+            </Col>
+          </Row>
+        </Container>
       );
     }
   }
@@ -131,22 +138,22 @@ class App extends React.Component {
   }
 
   _paginateNav(page) {
-    this.setState({ apiPage : page });
-    console.log(this.state.apiPage)
+    this.setState({ apiPage: page });
+    console.log(this.state.apiPage);
   }
 
   _paginateNavAdv() {
-    let newPage = this.state.apiPage
-    if(newPage < 5) newPage += 1;
-    this.setState({ apiPage : newPage });
-    console.log(this.state.apiPage)
+    let newPage = this.state.apiPage;
+    if (newPage < 5) newPage += 1;
+    this.setState({ apiPage: newPage });
+    console.log(this.state.apiPage);
   }
 
   _paginateNavRev() {
-    let newPage = this.state.apiPage
-    if(newPage > 1) newPage -= 1;
-    this.setState({ apiPage : newPage });
-    console.log(this.state.apiPage)
+    let newPage = this.state.apiPage;
+    if (newPage > 1) newPage -= 1;
+    this.setState({ apiPage: newPage });
+    console.log(this.state.apiPage);
   }
 }
 

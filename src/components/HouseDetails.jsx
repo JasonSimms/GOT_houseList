@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Table } from 'reactstrap';
-
+import { Table, Container, Row, Col } from "reactstrap";
 
 class HouseDetails extends Component {
   constructor(props) {
@@ -16,7 +15,6 @@ class HouseDetails extends Component {
     this._DETloadJson = this._DETloadJson.bind(this);
   }
 
-
   render() {
     const { error, isLoaded } = this.state;
     if (error) {
@@ -24,35 +22,34 @@ class HouseDetails extends Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-return (
-        <div>
-          <h2>HOW ABOUT THEM DETAILS?</h2>
-      <Table>
-      <thead>
-          <tr>
-            <th>House: </th>
-            <th>{this.props.house.name}</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Region: {this.props.house.region}</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>CurrentLord : {this.props.house.currentLord}</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>DISPLAY VAR = {JSON.stringify(this.props.house)}</td>
+      return (
+        <Container>
+          <h2>House Details</h2>
 
-          </tr>
-        </tbody>
-</Table>
-        </div>
-        )
+          <Table striped>
+            <thead>
+              <tr>
+                <th>House: </th>
+                <th>{this.props.house.name}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Region: {this.props.house.region}</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>CurrentLord : {this.props.house.currentLord}</td>
+              </tr>
+              {/* <tr> */}
+                {/* <th scope="row">3</th> */}
+                {/* <td>DISPLAY VAR = {JSON.stringify(this.props.house)}</td> */}
+              {/* </tr> */}
+            </tbody>
+          </Table>
+        </Container>
+      );
     }
   }
 
@@ -79,8 +76,6 @@ return (
 }
 
 export default HouseDetails;
-
-
 
 // import React from 'react';
 // import { Table } from 'reactstrap';
