@@ -84,7 +84,7 @@ Axios.get(`https://www.anapioficeandfire.com/api/houses?page=${this.state.apiPag
             <Col xs="4" className="nav-list">
               <NavList houses={this.state.houses} clicked={this._clicked} />
             </Col>
-            <Col xs="7">
+            <Col xs="7" className="house-details">
               {this.state.isNamed && (
                 <Details house={this.state.displayedHouse} />
               )}
@@ -138,7 +138,7 @@ Axios.get(`https://www.anapioficeandfire.com/api/houses?page=${this.state.apiPag
 
   _paginateNavAdv() {
     let newPage = this.state.apiPage;
-    if (newPage < 5) newPage += 1;
+    if (newPage < 9) newPage += 1;
     this.setState({ apiPage: newPage });
     console.log(this.state.apiPage);
   }
