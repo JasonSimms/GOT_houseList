@@ -1,5 +1,7 @@
 # Game Of Thrones House Details Page, by Jason Simms
 
+[![DeepScan grade](https://deepscan.io/api/teams/2472/projects/3553/branches/31573/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=2472&pid=3553&bid=31573)
+
 1. Clone or copy this repository
 2. $ npm install
 3. $ npm start
