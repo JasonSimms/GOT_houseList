@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
 import Application from './Application';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+import Landing from './Landing'
+import NotFound from './components/NotFound'
 
 
 
@@ -12,7 +15,15 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 <BrowserRouter>
-<Application/>
+<div>
+
+<Switch>
+               <Route exact path="/" component={Landing} />
+                <Route path="/main" component={Application} />
+                <Route component={NotFound} />
+            </Switch>
+</div>
+
 </BrowserRouter>
 
 , document.getElementById('root'));

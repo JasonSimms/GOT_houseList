@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
-// import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
+
 
 
 import NavList from "./components/NavList";
@@ -66,6 +66,11 @@ Axios.get(`https://www.anapioficeandfire.com/api/houses?page=${this.state.apiPag
         );
       }
   render() {
+   
+
+
+
+
     const { error, isLoaded, houses } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
