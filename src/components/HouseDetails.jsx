@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 import { Table, Container, Row, Col } from "reactstrap";
 import Axios from "axios";
+import {
+  AxiosProvider,
+  Request,
+  Get,
+  Delete,
+  Head,
+  Post,
+  Put,
+  Patch,
+  withAxios
+} from "react-axios";
 
 class HouseDetails extends Component {
   constructor(props) {
@@ -16,6 +27,16 @@ class HouseDetails extends Component {
   }
 
   render() {
+    // let thisHouse = {};
+    // console.log(thisHouse);
+    // const mappedInfo = thisHouse.map(el=>{
+    //   console.log({el})
+    //   // return <tr key={i}>
+    //   //   <th scope="row">{i}</th>
+    //   //   <td>{el}</td>
+    //   // </tr>;
+    // });
+
     const { error, isLoaded } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -35,16 +56,55 @@ class HouseDetails extends Component {
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">A</th>
                 <td>Region: {this.props.house.region}</td>
               </tr>
               <tr>
-                <th scope="row">2</th>
+                <th scope="row">B</th>
                 <td>CurrentLord : {this.props.house.currentLord}</td>
               </tr>
               <tr>
-                <th scope="row">3</th>
+                <th scope="row">C</th>
                 <td>DISPLAY VAR = {JSON.stringify(this.props.house)}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>
+                  <Get url="/api/user" params={{ id: "12345" }}>
+                    {(error, response, isLoading, onReload) => {
+                      if (error) {
+                        return (
+                          <div>
+                            Something bad happened: {error.message}{" "}
+                            <button
+                              onClick={() =>
+                                onReload({ params: { reload: true } })
+                              }
+                            >
+                              Retry
+                            </button>
+                          </div>
+                        );
+                      } else if (isLoading) {
+                        return <div>Loading...</div>;
+                      } else if (response !== null) {
+                        return (
+                          <div>
+                            {response.data.message}{" "}
+                            <button
+                              onClick={() =>
+                                onReload({ params: { refresh: true } })
+                              }
+                            >
+                              Refresh
+                            </button>
+                          </div>
+                        );
+                      }
+                      return <div>Default message before request is made.</div>;
+                    }}
+                  </Get>
+                </td>
               </tr>
             </tbody>
           </Table>
@@ -72,3 +132,5 @@ class HouseDetails extends Component {
 }
 
 export default HouseDetails;
+
+

@@ -5,7 +5,9 @@ import { Container, Row, Col } from "reactstrap";
 
 
 import NavList from "./components/NavList";
-import Details from "./components/HouseDetails";
+// import Details from "./components/HouseDetails";
+import Details from "./components/NewHouseDetails";
+
 import NavPagination from "./components/NavPagination";
 import Axios from "axios";
 
@@ -84,7 +86,7 @@ Axios.get(`https://www.anapioficeandfire.com/api/houses?page=${this.state.apiPag
             <Col xs="4" className="nav-list">
               <NavList houses={this.state.houses} clicked={this._clicked} />
             </Col>
-            <Col xs="7" className="house-details">
+            <Col xs="8" className="house-details">
               {this.state.isNamed && (
                 <Details house={this.state.displayedHouse} />
               )}

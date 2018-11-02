@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 
 export default class NavPagination extends React.Component {
   render() {
-    //   console.log(`navpage`,this.props)
     return (
-      <Pagination aria-label="Page navigation example">
+      <Pagination 
+      aria-label="Page navigation example"
+      >
         <PaginationItem>
           <PaginationLink
             previous
