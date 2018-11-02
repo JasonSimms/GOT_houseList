@@ -29,8 +29,8 @@
 
 ## Future Improvements
 
-- Additional information popups on Links from API URLS instead of just displaying .name.
 - Layout CSS
+- Additional information popups on Links from API URLS instead of just displaying .name.
 - Alphabetized Pagination or Search Bar (NOTE: API OF ICE AND FIRE SUPPORTS FILTER BY NAME)
 - Sounds / Animations
 - Graphics

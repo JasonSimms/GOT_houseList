@@ -29,6 +29,7 @@ code {
 
 .nav-list {
   /* background-color:red; */
+  text-align: center;
   padding: 0 0;
   overflow-y: scroll;
   height:80vh;
