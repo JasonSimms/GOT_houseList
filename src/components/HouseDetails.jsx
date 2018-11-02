@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table, Container, Row, Col } from "reactstrap";
+import Axios from "axios";
 
 class HouseDetails extends Component {
   constructor(props) {
@@ -12,7 +13,6 @@ class HouseDetails extends Component {
     };
 
     this._DETgetNames = this._DETgetNames.bind(this);
-    this._DETloadJson = this._DETloadJson.bind(this);
   }
 
   render() {
@@ -61,17 +61,13 @@ class HouseDetails extends Component {
       Object.keys(namedHouse).forEach(key => {
         if (namedHouse[key].includes(`https`)) {
           console.log(`fetching something`);
-          this._DETloadJson(namedHouse[key]).then(
-            result => (namedHouse[key] = result.name)
+          Axios.get(namedHouse[key]).then(
+            result => (namedHouse[key] = result.data.name)
           );
         }
       });
       resolve(namedHouse);
     });
-  }
-
-  _DETloadJson(url) {
-    return fetch(url).then(response => response.json());
   }
 }
 
