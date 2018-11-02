@@ -11,58 +11,57 @@ export default class NavPagination extends React.Component {
         <PaginationItem>
           <PaginationLink
             previous
-            href="#"
-            onClick={() => this.props.pageRev()}
+                   onClick={() => this.props.pageRev()}
           />
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" onClick={() => this.props.pageTo(1)}>
+          <PaginationLink  onClick={() => this.props.pageTo(1)}>
             1
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" onClick={() => this.props.pageTo(2)}>
+          <PaginationLink  onClick={() => this.props.pageTo(2)}>
             2
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" onClick={() => this.props.pageTo(3)}>
+          <PaginationLink  onClick={() => this.props.pageTo(3)}>
             3
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" onClick={() => this.props.pageTo(4)}>
+          <PaginationLink  onClick={() => this.props.pageTo(4)}>
             4
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" onClick={() => this.props.pageTo(5)}>
+          <PaginationLink  onClick={() => this.props.pageTo(5)}>
             5
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" onClick={() => this.props.pageTo(6)}>
+          <PaginationLink  onClick={() => this.props.pageTo(6)}>
             6
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" onClick={() => this.props.pageTo(7)}>
+          <PaginationLink  onClick={() => this.props.pageTo(7)}>
             7
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" onClick={() => this.props.pageTo(8)}>
+          <PaginationLink  onClick={() => this.props.pageTo(8)}>
             8
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" onClick={() => this.props.pageTo(9)}>
+          <PaginationLink  onClick={() => this.props.pageTo(9)}>
             9
           </PaginationLink>
         </PaginationItem>
         <PaginationItem />
         <PaginationItem>
-          <PaginationLink next href="#" onClick={() => this.props.pageAdv()} />
+          <PaginationLink next ck={() => this.props.pageAdv()} />
         </PaginationItem>
       </Pagination>
     );
