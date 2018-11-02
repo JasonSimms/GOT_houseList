@@ -103,14 +103,8 @@ Axios.get(`https://www.anapioficeandfire.com/api/houses?page=${this.state.apiPag
   }
 
   _clicked(index) {
-    // console.log("clicked: ", index);
     let clickedHouse = this.state.houses.find(obj => obj.url === index);
     this.setState({ displayedHouse: clickedHouse, isNamed: true });
-    // this._getNames(clickedHouse).then(res =>
-    //   // console.log(`rezzed`,res)
-    //   this.setState({displayedHouse: res, isNamed: true})
-
-    //   )
 
     // CONSIDER USING UNDERSCORE.js to facilitate backward compatabilty
     // var obj = _.find(objArray, function (obj) { return obj.id === 3; });

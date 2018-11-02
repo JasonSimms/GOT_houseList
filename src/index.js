@@ -22,6 +22,9 @@ ReactDOM.render(
                 <Route path="/main" component={Application} />
                 <Route component={NotFound} />
             </Switch>
+            <a href="https://github.com/JasonSimms/GOT_houseList" target="blank">
+                <button className="button" >GitHub</button>
+            </a>
 </div>
 
 </BrowserRouter>
