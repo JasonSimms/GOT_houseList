@@ -11,7 +11,7 @@ const NewHouseDetails = props => {
   const mappedInfo = thisHouseKeys.map(el => {
     if (thisHouse[el].includes(`https`)) {
       return (
-          <Get url={"" + thisHouse[el]}>
+          <Get url={"" + thisHouse[el]} key={el}>
             {(error, response, isLoading, onReload) => {
               if (error) {
                 return (
